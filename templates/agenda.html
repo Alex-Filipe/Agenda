@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styleagenda.css">
+    <title>Agenda</title>
+</head>
+<body>
+    <header>
+        <div>
+            <h1>Agenda</h1>
+            <a href="/logout">Logout</a>
+        </div>
+    </header>
+
+    <main>
+        <h2>Agendamentos</h2>
+        <a href="evento/"><button type="button">Novo Evento</button></a>
+        <a href="passado/"><button type="button">Eventos Expirados</button></a>
+        <ul>
+            {% for evento in eventos %}
+                <li>
+                    <div>
+                        {{evento.titulo}} - {{evento.get_data_evento}} - {{evento.descricao}} 
+                        <a href="evento/?id={{ evento.id }}">Editar</a> / 
+                        <a href="evento/delete/{{evento.id}}/">Excluir</a>
+                    </div>
+                </li>
+            {% endfor %}     
+        </ul>
+    </main>
+</body>
+</html>

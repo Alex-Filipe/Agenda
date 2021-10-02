@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eventos</title>
+</head>
+<body>
+    <h2>Eventos</h2>
+    <form action="submit" method="POST">{% csrf_token %}
+        <label>Titulo</label>
+        <input type="number" name="id_evento" value="{{ evento.id }}" hidden>
+
+        <input type="text" name="titulo" value="{{ evento.titulo }}">
+        <label>Data do Evento</label>
+
+        <input type="datetime-local" name="data_evento">
+        <label>Descrição</label>
+
+        <textarea name="descricao" id="" cols="40" rows="5">{{ evento.descricao }}</textarea>
+
+        <button type="submit">Salvar</button>
+        <a href="/"><button type="button">Cancelar</button></a>
+    </form>
+</body>
+</html>
