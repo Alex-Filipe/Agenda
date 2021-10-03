@@ -4,22 +4,42 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/style_login.css">
     <title>Agenda-Login</title>
 </head>
 <body>
-    <h1>Login</h1>
+    <header id="header">
+        <div class="container grid">
+            <div class="logo">
+                <h1>agendaWeb</h1>
+            </div>
+        </div>
+    </header>
 
-    <form action="submit" method="POST"> {% csrf_token %}
-        <label>Usuário</label>
-        <input type="text" name="username">
-        <label>Senha</label>
-        <input type="password" name="password">
-        <button type="submit">Entrar</button>
-    </form>
-
-    {% for message in messages %}
-        <p><strong>Erro</strong></p>{{ message }}
-    {% endfor %}
-
+    <main id="main">
+        <div class="container">
+            <div>
+                <h1>Login</h1>
+            </div>
+            <div class="login">
+                <form action="submit" method="POST" class="grid"> {% csrf_token %}
+                    <div>
+                        <label>Usuário</label>
+                        <input type="text" name="username">
+                    </div>
+                    <div>
+                        <label>Senha</label>
+                        <input type="password" name="password">
+                    </div>
+                    <div>
+                        <button type="submit">Entrar</button>
+                    </div>
+                </form>
+            </div>
+            {% for message in messages %}
+                <p><strong>Erro</strong></p>{{ message }}
+            {% endfor %}
+        </div>
+    </main> 
 </body>
 </html>
